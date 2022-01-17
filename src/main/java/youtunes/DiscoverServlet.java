@@ -4,19 +4,25 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
-//import javax.servlet.ServletContext;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/*
+<welcome-file-list>
+<welcome-file>jsp/index.jsp</welcome-file>
+</welcome-file-list>
+*/
 
 /**
  * Servlet implementation class DiscoverServlet
  */
 @WebServlet(name = "DiscoverServlet", urlPatterns = {"/discover/*"})
-public class DiscoverServlet extends HttpServlet {
+public class DiscoverServlet extends javax.servlet.http.HttpServlet
+implements javax.servlet.Servlet {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -31,15 +37,17 @@ public class DiscoverServlet extends HttpServlet {
         System.out.println("*** initializing controller servlet.");
         super.init(config);
         
+        ServletContext context = config.getServletContext();
+        context.setAttribute("base", config.getInitParameter("base"));
+        context.setAttribute("imageURL", config.getInitParameter("imageURL"));
         /*
         DataManager dataManager = new DataManager();
         dataManager.setDbURL(config.getInitParameter("dbURL"));
         dataManager.setDbUserName(config.getInitParameter("dbUserName"));
         dataManager.setDbPassword(config.getInitParameter("dbPassword"));
 
-        ServletContext context = config.getServletContext();
-        context.setAttribute("base", config.getInitParameter("base"));
-        context.setAttribute("imageURL", config.getInitParameter("imageURL"));
+        
+        
         context.setAttribute("dataManager", dataManager);
 
         try {  // load the database JDBC driver
