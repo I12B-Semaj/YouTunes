@@ -1,6 +1,7 @@
 package youtunes;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -11,11 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/*
-<welcome-file-list>
-<welcome-file>jsp/index.jsp</welcome-file>
-</welcome-file-list>
-*/
+import youtunes.model.JdbcManager;
+
 
 /**
  * Servlet implementation class DiscoverServlet
@@ -30,7 +28,6 @@ implements javax.servlet.Servlet {
      */
     public DiscoverServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     public void init(ServletConfig config) throws ServletException {
@@ -38,34 +35,34 @@ implements javax.servlet.Servlet {
         super.init(config);
         
         ServletContext context = config.getServletContext();
-        context.setAttribute("base", config.getInitParameter("base"));
-        context.setAttribute("imageURL", config.getInitParameter("imageURL"));
-        /*
-        DataManager dataManager = new DataManager();
+        
+        //Initialize a Database Connection Parameters
+        JdbcManager dataManager = new JdbcManager();
         dataManager.setDbURL(config.getInitParameter("dbURL"));
         dataManager.setDbUserName(config.getInitParameter("dbUserName"));
         dataManager.setDbPassword(config.getInitParameter("dbPassword"));
+        
+        Connection connection = dataManager.getConn();
 
-        
-        
         context.setAttribute("dataManager", dataManager);
-
+		context.setAttribute("base", config.getInitParameter("base"));
+        context.setAttribute("imageURL", config.getInitParameter("imageURL"));
+        
         try {  // load the database JDBC driver
           Class.forName(config.getInitParameter("jdbcDriver"));
           }
         catch (ClassNotFoundException e) {
           System.out.println(e.toString());
           }
-          */
         }
+    	
+    	
         
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
 	}
 
@@ -73,9 +70,23 @@ implements javax.servlet.Servlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Handle Navigation
 		String base = "/jsp/";
 	    String url = base + "index.jsp";
-	    //String action = request.getParameter("action");
+	    String action = request.getParameter("action");
+	    if (action != null) {
+	        switch (action) {
+	        case "aboutUs":
+	          url = base + "About.jsp";
+	          break;
+	        case "contactUs":
+		          url = base + "Contact.jsp";
+		          break;
+	        default:
+	            url = base + "index.jsp";
+	          break;
+	        }
+	      }
 	    RequestDispatcher requestDispatcher =
 	      getServletContext().getRequestDispatcher(url);
 	    requestDispatcher.forward(request, response);

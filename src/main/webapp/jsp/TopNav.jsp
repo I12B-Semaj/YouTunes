@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%
+  String base = (String)application.getAttribute("base");
+  %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,6 +24,7 @@
     <link rel="stylesheet" href="css/mdb.min.css" />
   </head>
   <body>
+  	<!-- Code Acquired from MDB Bootstrap -->
     <!-- Start your project here-->
 	<!-- Navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -58,10 +63,10 @@
 			  <a class="nav-link" href="#">Artists</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="#">About Us</a>
+			  <a class="nav-link" href="<%=base%>?action=aboutUs">About Us</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="#">Contact Us</a>
+			  <a class="nav-link" href="<%=base%>?action=contactUs">Contact Us</a>
 			</li>
 		  </ul>
 		  <!-- Left links -->
