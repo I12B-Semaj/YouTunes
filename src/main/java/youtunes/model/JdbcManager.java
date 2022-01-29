@@ -1,6 +1,8 @@
 package youtunes.model;
 
 import java.util.Hashtable;
+
+
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.sql.Connection;
@@ -13,6 +15,13 @@ public class JdbcManager
 	private String jdbcURL = "";
 	private String jdbcUserName = "";
 	private String jdbcPassword = "";
+	
+	public JdbcManager()
+	{
+		jdbcURL = "jdbc:mysql://localhost:3306/youtunes";
+		jdbcUserName = "youtunes_user";
+		jdbcPassword = "MySQL8IsGreat!";
+	}
 
 	public void setDbURL(String jdbcURL) 
 	{

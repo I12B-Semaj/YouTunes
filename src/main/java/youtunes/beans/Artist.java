@@ -44,8 +44,6 @@ public class Artist
 
 	@Override
 	public String toString() {
-		return "Artist{artistId=<id>, firstName=<firstName>, lastName=<lastName>}";
-	}
-	
-	
+		return "Artist{artistID=<artistID>, firstName=<firstName>, lastName=<lastName>}";
+	}	
 }

@@ -46,7 +46,7 @@
 		<!-- Collapsible wrapper -->
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		  <!-- Navbar brand -->
-		  <a class="navbar-brand mt-2 mt-lg-0" href="#">
+		  <a class="navbar-brand mt-2 mt-lg-0" href="<%=base%>">
 		  	<!--
 			<img
 			  src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
@@ -55,7 +55,7 @@
 			  loading="lazy"
 			/>
 			-->
-			<h4>YouTunes</h4>
+			<img src="images/youtunes_logo.png"/>
 		  </a>
 		  <!-- Left links -->
 		  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -67,6 +67,9 @@
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="<%=base%>?action=contactUs">Contact Us</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="<%=base%>?action=newAlbum">New Album</a>
 			</li>
 		  </ul>
 		  <!-- Left links -->

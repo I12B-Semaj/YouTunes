@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import youtunes.beans.Album;
+import youtunes.model.JdbcAlbumDao;
 import youtunes.model.JdbcManager;
 
 
@@ -82,14 +84,42 @@ implements javax.servlet.Servlet {
 	        case "contactUs":
 		          url = base + "Contact.jsp";
 		          break;
+	        case "newAlbum":
+				url = base + "albums/New.jsp";
+				break;
+	        case "createAlbum":
+				createAlbum(request, response);
+				url = base + "index.jsp";
+				break;
 	        default:
 	            url = base + "index.jsp";
 	          break;
 	        }
 	      }
-	    RequestDispatcher requestDispatcher =
-	      getServletContext().getRequestDispatcher(url);
+	    RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(url);
 	    requestDispatcher.forward(request, response);
 	}
-
+	
+	private void createAlbum(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		String title = request.getParameter("title");
+		String releaseYear = request.getParameter("release");
+		String price = request.getParameter("price");
+		String genre = request.getParameter("genre");
+		String imgUrl = request.getParameter("img_url");
+		String artistId = request.getParameter("artist");
+		
+		Album newAlbum = new Album(); 
+		newAlbum.setAlbumTitle(title);
+		newAlbum.setReleaseYear(Integer.parseInt(releaseYear));
+		newAlbum.setPrice(Double.parseDouble(price));
+		newAlbum.setGenre(genre);
+		newAlbum.setImgUrl(imgUrl);
+		newAlbum.setArtistID(Integer.parseInt(artistId));
+		
+		JdbcAlbumDao albumDao = new JdbcAlbumDao(); 
+		albumDao.add(newAlbum);
+		
+		System.out.println(newAlbum.toString());
+	}
 }

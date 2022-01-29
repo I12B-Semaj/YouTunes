@@ -8,8 +8,17 @@
 </head>
 <body>
 	<%@include file="TopNav.jsp" %>
-	<h1>Contact Us</h1>
-	<p>More to come!</p>
+	<div class="wrapper">
+		<h1 class="middle">Contact Us</h1>
+		<div id="contact-wrapper">
+			<address class="middle">
+				Phone: 
+				<a href="#">(555)555-5555</a><br>
+				E-mail: 
+				<a href="#">customerservice@youtunes.com</a><br>
+			</address>
+		</div>
+	</div>
 	<footer>
 		<%@include file="Footer.jsp" %>
 	</footer>
