@@ -38,15 +38,21 @@
 	    		<h3><b>Announcement 3</b></h3>
 	    		<h4><i>News about an up and coming artist.</i></h4>
 	  		</div>
-	
-	    	<button class="btn btn-sm btn-outline-secondary" onclick="plusDivs(-1)">&#8592; Prev</button>
-	    	<button class="btn btn-sm btn-outline-secondary" onclick="plusDivs(1)">Next &#8594;</button>
+			<div class="btn-group my-1">
+	    		<button class="btn btn-sm btn-secondary btn-outline-dark" onclick="plusDivs(-1)">&#8592; Prev</button>
+	    		<button class="btn btn-sm btn-secondary btn-outline-dark" onclick="plusDivs(1)">Next &#8594;</button>
+	    	</div>
 	    	<br>
-		  	<button class="demo btn btn-sm btn-outline-secondary" onclick="currentDiv(1)">1</button> 
-		  	<button class="demo btn btn-sm btn-outline-secondary" onclick="currentDiv(2)">2</button> 
-		  	<button class="demo btn btn-sm btn-outline-secondary" onclick="currentDiv(3)">3</button>
+	    	<div class="btn-group my-1">
+			  	<button class="demo btn btn-sm btn-secondary btn-outline-dark" onclick="currentDiv(1)">1</button> 
+			  	<button class="demo btn btn-sm btn-secondary btn-outline-dark" onclick="currentDiv(2)">2</button> 
+			  	<button class="demo btn btn-sm btn-secondary btn-outline-dark" onclick="currentDiv(3)">3</button>
+			</div>
 		</div>
 		<h2>Albums</h2>
+		<p>
+			<a href="discover?action=newAlbum" class="btn btn-secondary btn-block my-2">Add Album</a>
+		</p>
 		<div class="album py-5 bg-light">
 			<div class="container">
 		
@@ -66,11 +72,13 @@
 									<span><%=album.getAlbumTitle()%></span>
 									<br />
 									<small class="text-muted"><em><%=album.getGenre()%></em></small>
+									<br />
+									<small class="text-muted"><em><%=album.getReleaseYear()%></em></small>
 								</p>
 			              <div class="d-flex justify-content-between align-items-center">
-			                <div class="btn-group">
-			                  	<a href="discover?action=albumDetails&albumId=<%=album.getAlbumID()%>" class="btn btn-sm btn-outline-secondary">Edit</a>
-								<a href="discover?action=deleteAlbum&albumId=<%=album.getAlbumID()%>" class="btn btn-sm btn-outline-secondary">Delete</a>
+			                <div class="btn-toolbar">
+			                  	<a href="discover?action=albumDetails&albumId=<%=album.getAlbumID()%>" class="btn btn-sm btn-secondary mx-1">Edit</a>
+								<a href="discover?action=deleteAlbum&albumId=<%=album.getAlbumID()%>" class="btn btn-sm btn-secondary mx-1">Delete</a>
 			                </div>
 			                <small class="text-muted">$<%=album.getPrice()%></small>
 			              </div>

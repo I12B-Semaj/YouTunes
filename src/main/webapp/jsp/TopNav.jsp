@@ -60,7 +60,7 @@
 		  <!-- Left links -->
 		  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			<li class="nav-item">
-			  <a class="nav-link" href="#">Artists</a>
+			  <a class="nav-link" href="<%=base%>?action=showArtists">Artists</a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="<%=base%>?action=aboutUs">About Us</a>

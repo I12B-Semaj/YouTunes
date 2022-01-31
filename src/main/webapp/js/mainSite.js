@@ -24,8 +24,8 @@ function showDivs(n)
   	}
   	for (i = 0; i < dots.length; i++)
 	{
-    	dots[i].className = dots[i].className.replace(" w3-red", "");
+    	dots[i].className = dots[i].className.replace("btn-secondary btn-outline-dark", " btn-outline-secondary");
   	}
   	x[slideIndex-1].style.display = "block";  
-  	dots[slideIndex-1].className += " w3-red";
+  	dots[slideIndex-1].className += " btn-secondary btn-outline-dark";
 }

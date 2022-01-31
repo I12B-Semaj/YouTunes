@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
-</body>
-</html>
+ <!-- Page Scrapped in favor of having built in feature to List.jsp
+ 
+ - See Last Row in <table> tag in List.jsp for integrated form feature.
+
+  -->

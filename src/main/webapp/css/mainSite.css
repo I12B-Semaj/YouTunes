@@ -53,13 +53,6 @@ footer {
     width: 100%;
     bottom:0;
 }
-.copyright {
-	padding-top: 50px;
-    width: 100%;
-    line-height: 70px;
-    font-size: 0.7em;
-    text-align: center;
-}
 
 .mySlides {
 	display:none;

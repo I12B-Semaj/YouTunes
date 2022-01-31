@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>YouTunes | Artist List</title>
+<title>Artist List</title>
 <!--  Bootstrap StyleSheet CDN -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -28,20 +28,37 @@
 		<h2 class="text-center">Artist List</h2>
 		<br />
 		
-		<p class="text-center">
-			<a href="store?action=newArtist" class="btn btn-outline-secondary text-center w-50">New Artist</a>
-		</p>
-		
 		
 		<table class="table">
 			<thead>
 				<tr>
-					<th>ArtistId</th>
+					<th>Artist ID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Functions</th>
 				</tr>
 			</thead>
+			
+			<form>
+					<tr>
+						<td>
+							<input type="hidden" name="action" value="createArtist"/>
+						</td>
+						<td>
+							<div class="mb-3">
+								<input type="text" class="form-control" id="firstName" name="firstName" />
+							</div>
+						</td>
+						<td>
+							<div class="mb-3">
+								<input type="text" class="form-control" id="lastName" name="lastName" />
+							</div>
+						</td>
+						<td>
+							<button type="submit" class="btn btn-sm btn btn-secondary float-end">Add Artist</button>
+						</td>									
+					</tr>
+				</form>
 			
 			<%
 				List<Artist> artists = artistDao.list(); 
@@ -60,8 +77,10 @@
 							<td><%=artist.getFirstName()%></td>
 							<td><%=artist.getLastName()%></td>
 							<td>
-								<a href="store?action=artistDetails&artistId=<%=artist.getArtistID()%>" class="link">Edit</a> |
-								<a href="store?action=deleteArtist&artistId=<%=artist.getArtistID() %>" class="link">Delete</a>
+								<div class="btn-toolbar">
+			                  		<a href="discover?action=artistDetails&artistId=<%=artist.getArtistID()%>" class="btn btn-sm btn btn-secondary mx-1">Edit</a>
+									<a href="discover?action=deleteArtist&artistId=<%=artist.getArtistID() %>" class="btn btn-sm btn btn-secondary mx-1">Delete</a>
+			                	</div>
 							</td>
 						</tr>
 				<% } %>

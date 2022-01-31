@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>YouTunes | New Album</title>
+<title>New Album</title>
 <!--  Bootstrap StyleSheet CDN -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -64,9 +64,12 @@
 			<label for="genre" class="form-label">Genre</label>
 			<select class="form-select" id="genre" name="genre">
 				<option value="0" selected>--Select--</option>
-				<option value="Classical">Classical</option>
-				<option value="Jazz">Jazz</option>
 				<option value="Blues">Blues</option>
+				<option value="Classical">Classical</option>
+				<option value="Country">Country</option>
+				<option value="Jazz">Jazz</option>
+				<option value="Pop/Rock">Pop/Rock</option>
+				<option value="R&B">R&#38;B</option>
 				<option value="Rock">Rock</option>
 			</select>
 		</div>
@@ -97,11 +100,11 @@
   			
 		</div>
 					
-		<button id="btnSubmit" type="submit" class="btn btn-primary float-end">Save</button>
+		<button id="btnSubmit" type="submit" class="btn btn-secondary float-end">Save</button>
 	</form>
 	
 	<br /><br />
-	<a href="../index.jsp">Return home</a>
+	<a href="discover">Return home</a>
 </div>
 
 <%@include file="../Footer.jsp" %>
